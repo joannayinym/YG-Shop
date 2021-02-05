@@ -41,3 +41,10 @@ export const savePaymentMethod = (data) => (dispatch) => {
   });
   localStorage.setItem('paymentMethod', JSON.stringify(data));
 };
+
+export const resetCart = () => (dispatch) => {
+  dispatch({
+    type: cartActiontypes.CART_RESET,
+  });
+  localStorage.setItem('cartItems', '');
+};

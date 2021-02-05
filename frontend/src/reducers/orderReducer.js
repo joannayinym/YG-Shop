@@ -12,6 +12,8 @@ export const orderCreateReducer = (state = {}, action) => {
       };
     case orderActionTypes.ORDER_CREATE_FAIL:
       return { loading: false, success: false, error: action.payload };
+    case orderActionTypes.ORDER_CREATE_RESET:
+      return {};
     default:
       return state;
   }
