@@ -53,7 +53,7 @@ const ProductScreen = ({ history, match }) => {
     if (userInfo) {
       history.push(`/cart/${match.params.id}?qty=${qty}`);
     } else {
-      history.push(`/login?redirected=/cart/${match.params.id}`, { qty: qty });
+      history.push(`/login?redirected=/cart/${match.params.id}?qty=${qty}`);
     }
   };
 

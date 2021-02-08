@@ -18,8 +18,12 @@ const LoginScreen = ({ location, history }) => {
 
   let redirect = location.search ? location.search.split('=')[1] : '/';
 
-  if (location.state && location.state.qty) {
-    redirect = redirect + '?qty=' + location.state.qty;
+  // if (location.state && location.state.qty) {
+  //   redirect = redirect + '?qty=' + location.state.qty;
+  // }
+
+  if (location.search.split('=').length > 2) {
+    redirect = redirect + '=' + location.search.split('=')[2];
   }
 
   useEffect(() => {
