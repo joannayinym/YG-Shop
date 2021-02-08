@@ -16,7 +16,11 @@ const LoginScreen = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
-  const redirect = location.search ? location.search.split('=')[1] : '/';
+  let redirect = location.search ? location.search.split('=')[1] : '/';
+
+  if (location.state && location.state.qty) {
+    redirect = redirect + '?qty=' + location.state.qty;
+  }
 
   useEffect(() => {
     if (userInfo) {

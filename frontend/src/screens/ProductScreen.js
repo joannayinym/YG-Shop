@@ -50,8 +50,11 @@ const ProductScreen = ({ history, match }) => {
   }, [dispatch, match, successProductReview]);
 
   const addToCartHandler = () => {
-    history.push(`/login?redirected=cart/${match.params.id}?qty=${qty}`);
-    // history.push(`/cart/${match.params.id}?qty=${qty}`);
+    if (userInfo) {
+      history.push(`/cart/${match.params.id}?qty=${qty}`);
+    } else {
+      history.push(`/login?redirected=/cart/${match.params.id}`, { qty: qty });
+    }
   };
 
   const submitHandler = (e) => {
