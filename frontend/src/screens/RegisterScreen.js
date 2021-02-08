@@ -19,7 +19,11 @@ const RegisterScreen = ({ location, history }) => {
   const userRegister = useSelector((state) => state.userRegister);
   const { loading, error, userInfo } = userRegister;
 
-  const redirect = location.search ? location.search.split('=')[1] : '/';
+  let redirect = location.search ? location.search.split('=')[1] : '/';
+
+  if (location.state && location.state.qty) {
+    redirect = redirect + '?qty=' + location.state.qty;
+  }
 
   useEffect(() => {
     if (userInfo) {
